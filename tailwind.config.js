@@ -1,7 +1,7 @@
 /** @format */
 
 module.exports = {
-	purge: [],
+	purge: ["./**/*.vue"],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {},
