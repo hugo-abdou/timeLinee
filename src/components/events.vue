@@ -2,9 +2,9 @@
 	<div class="bg-gray-50 min-h-screen py-10">
 		<button
 			@click="toggleDirection"
-			class="bg-gray-700 px-2 py-1 mx-auto block text-white font-semibold hover:bg-gray-600 rounded-full shadow-md focus:outline-none"
+			class="bg-gray-700 px-3 capitalize py-1 mx-auto block text-white font-semibold hover:bg-gray-600 rounded-full shadow-md focus:outline-none"
 		>
-			{{ layout }}
+			{{ "Switch to " + layout }}
 		</button>
 		<div class="flex justify-center items-center mt-10">
 			<div
@@ -13,13 +13,13 @@
 				<div
 					:class="[
 						'flex items-center',
-						layout == 'vertical' ? 'flex-col' : 'flex-row',
+						layout == 'horizontal' ? 'flex-col' : 'flex-row',
 					]"
 				>
 					<div
 						:class="[
 							'flex items-center',
-							layout == 'vertical' ? 'flex-row' : 'flex-col',
+							layout == 'horizontal' ? 'flex-row' : 'flex-col',
 						]"
 						v-for="(event, index) in timeLineEvents"
 						:key="event.id"
@@ -27,14 +27,14 @@
 						<div
 							:class="[
 								'flex items-center',
-								layout == 'vertical' ? 'flex-col' : 'flex-row',
+								layout == 'horizontal' ? 'flex-col' : 'flex-row',
 							]"
 						>
 							<span
 								v-if="index > 0"
 								:class="[
 									'bg-gray-900 block',
-									layout == 'vertical' ? 'h-10 w-1' : 'h-1 w-10',
+									layout == 'horizontal' ? 'h-10 w-1' : 'h-1 w-10',
 								]"
 							></span>
 							<span
@@ -47,7 +47,7 @@
 								v-if="index < timeLineEvents.length - 1"
 								:class="[
 									'bg-gray-900 block',
-									layout == 'vertical' ? 'h-10 w-1' : 'h-1 w-10',
+									layout == 'horizontal' ? 'h-10 w-1' : 'h-1 w-10',
 								]"
 							></span>
 						</div>
