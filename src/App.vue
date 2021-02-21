@@ -3,7 +3,7 @@
 		:events="events"
 		@changeEvent="changeEvent"
 		@deleteEvent="deleteEvent"
-		@addEvent="addEvent"
+		@addEvent="showModel = true"
 	/>
 	<div
 		v-show="showModel"
@@ -68,10 +68,10 @@
 			add() {
 				if (this.newEvent.name && this.newEvent.date) {
 					this.events.push({
+						id: Math.floor(Math.random() * 1000),
 						name: this.newEvent.name,
 						date: this.newEvent.date,
 						active: false,
-						id: Math.floor(Math.random() * 1000),
 					});
 					this.cancel();
 					this.error = false;
@@ -82,11 +82,8 @@
 			deleteEvent(e) {
 				this.events = this.events.filter((event) => event.id !== e);
 			},
-			addEvent() {
-				this.showModel = true;
-			},
-			changeEvent(e) {
-				console.log(e);
+			changeEvent(e, id) {
+				console.log(e, id);
 			},
 		},
 		updated() {
